@@ -10,6 +10,7 @@ import (
 	"syscall"
 
 	"github.com/OmarAkhter/golan-project/internal/config"
+	"github.com/OmarAkhter/golan-project/internal/http/hanlders/students"
 )
 
 func main() {
@@ -19,9 +20,7 @@ func main() {
 	// route setup
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, Welcome to girst get"))
-	})
+	router.HandleFunc("POST /", students.New())
 
 	//server setup
 
